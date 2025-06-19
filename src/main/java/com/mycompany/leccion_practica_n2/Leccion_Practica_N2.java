@@ -11,13 +11,26 @@ public class Leccion_Practica_N2 {
         System.out.println("Hello World!");
 
         //Vector de Estudiantes
-        Estudiante[] estudiantes = new Estudiante[3];
-        estudiantes[0]=new Estudiante("Juan","25","Calle El Rancho");
-        estudiantes[1]=new Estudiante("Maria","22","Calle La Paz");
-        estudiantes[2]=new Estudiante("Pedro","23","Calle El Sol");
 
-       IEstudiante x = new Estudiantes();
-       x.imprimirEstudiantes(estudiantes);
+        Estudiante estudiantesUno = new Estudiante("Juan", "25", "Calle El Rancho");
+        Estudiante estudiantesDos = new Estudiante("Maria", "22", "Calle La Paz");
+        Estudiante estudiantesTres = new Estudiante("Pedro", "23", "Calle El Sol");
 
+       IEstudiante estudiantes = new Estudiantes(3);
+       
+        //Agregando estudiantes
+        estudiantes.agregarEstudiante(estudiantesUno);
+        estudiantes.agregarEstudiante(estudiantesDos);
+        estudiantes.agregarEstudiante(estudiantesTres); 
+
+        //Imprimir estudiantes
+       estudiantes.imprimirDatos();
+        System.out.println("Datos Actualizados");
+        //Actualizando un estudiante
+        Estudiante estudiantesCuatro = new Estudiante("Ana", "24", "Calle La Luna");
+        estudiantes.actualizarEstudiante(1, estudiantesCuatro);
+        //Imprimir estudiantes actualizados
+        estudiantes.imprimirDatos();
+         
     }
 }

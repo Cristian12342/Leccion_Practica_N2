@@ -4,19 +4,42 @@ package com.mycompany.leccion_practica_n2;
 
 public class Estudiantes implements IEstudiante {
 
+private Estudiante[] estudiantes;
+private int totalEstudiantes;
 
-public Estudiante agregarEstudiante() {
-        
-        return null; 
+
+public Estudiantes(int dimension) {
+    estudiantes = new Estudiante[dimension];
+    totalEstudiantes = 0;
 }
 
-public void imprimirEstudiantes(Estudiante[] estudiantes) {
-    for(int i= 0; i<estudiantes.length;i++){
+public boolean agregarEstudiante(  Estudiante estudiante) {
+        if( totalEstudiantes == estudiantes.length) {
+            System.out.println("No se pueden agregar más estudiantes.");
+            return false; 
+        }else {
+            estudiantes[totalEstudiantes] = estudiante;
+            totalEstudiantes = totalEstudiantes + 1;
+            return true;
+        }
+        
+}
+
+
+public void imprimirDatos() {
+    for(int i= 0; i<totalEstudiantes;i++){
 
         System.out.println("Nombre;"+ estudiantes[i].getNombre());
         System.out.println("Edad;"+ estudiantes[i].getEdad());
         System.out.println("Direccion;"+ estudiantes[i].getDireccion());
 
     }
+}
+
+public boolean actualizarEstudiante(int i, Estudiante estudiante) {
+
+    estudiantes[i] = estudiante;
+    return true;
+    
 }
 }
